@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fish Aquarium</title>
+    </head>
+    <body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js"></script>
+     <script type="text/processing" data-processing-target="myCan">
+     size(400, 520);
+   var yPoz = 0;
+   var xPoz = 0;
+   var count = 0;
+   var centerX = 0;
+   var centerY;
+   var bodyLength;
+   var bodyHeight;
+   var bodyColor;
+   var eyeColor;
+   var tailColor;
+var drawFish = function(centerX, centerY, bodyLength, bodyHeight, bodyColor, eyeColor, tailColor, speed) {
+       xPoz +=0.2;
+       centerX += xPoz;
+       if (xPoz >470) {
+           xPoz = -280;
+       }
+       noStroke();
+       fill(bodyColor);
+       // body
+       ellipse(centerX, centerY, bodyLength, bodyHeight);
+       //tail
+       fill(tailColor);
+       var tailWidth = bodyLength/4;
+       var tailHeight = bodyHeight/2;
+       triangle(centerX-bodyLength/2, centerY, centerX-bodyLength/2-tailWidth, centerY-tailHeight, centerX-bodyLength/2-tailWidth, centerY+tailHeight);
+ // eye
+ fill(eyeColor);
+ ellipse(centerX + bodyLength/4, centerY, bodyHeight/5, bodyHeight/5);
+ };
+   draw = function() {
+       background(89, 216, 255);
+      drawFish (100, 100, 118, 80, color(26, 0, 255), color(245, 58, 44), color(14, 52, 176));
+     drawFish (200, 200, 100, 50, color(224, 29, 224), color(46, 41, 39), color(240, 72, 145));
+       drawFish (257, 284, 90, 120, color(21, 232, 49), color(9, 95, 153), color(13, 138, 227));
+       drawFish (100, 280, 100, 100, color(158, 157, 38), color(68, 255, 0), color(8, 201, 18));
+       drawFish (161, 50, 118, 70, color(255, 0, 0), color(0, 255, 238), color(184, 11, 11));
+      var x1;
+       var y1;
+     var bubble = function(x1, y1, bSize) {
+         noFill();
+         stroke(208, 225, 245);
+         strokeWeight(4);
+         yPoz += 0.14;
+         y1 -= yPoz ;
+         if (yPoz > 900) {
+             yPoz = 0;
+         }
+         count++;
+         ellipse(x1, y1, bSize, bSize);
+     };
+     bubble(167, 330, 10);
+     bubble(184, 279, 15);
+     bubble(167, 430, 18);
+     bubble(251, 629, 13);
+     bubble(308, 779, 25);
+     bubble(200, 799, 38);
+     bubble(59, 429, 9);
+     bubble(315, 299, 30);
+     bubble(36, 355, 14);
+     bubble(365, 525, 20);
+     noStroke();
+     var stone = function(x1, y1) {
+         fill(156, 130, 130);
+         ellipse(x1, y1, 47, 26);
+     };
+   
+ fill(255, 237, 99);
+    rect(0, 368, 400, 152);
+     stone(40, 389);
+    stone(98, 378);
+    stone(150, 390);
+     stone(200, 371);
+   stone(270, 385);
+     stone(342, 380);
+    var z;
+     var grass = function(x1, y1, z) {
+         fill(81, 143, 6);
+         ellipse(x1, y1, 11, z);
+     };
+grass(100, 317, 199);
+grass(172, 342, 180);
+grass(215, 302, 232);
+grass(296, 328, 260);
+grass(380, 305, 174);
+grass(10, 315, 240);
+bezier(378, 388, 319, 101, 359, 308, 358, 202);
+
+bubble(28, 750, 35);
+bubble(48, 580, 30);
+bubble(170, 680, 25);
+bubble(270, 530, 40);
+bubble(360, 730, 29);
+bubble(297, 740, 18);
+bubble(138, 470, 22);
+bubble(69, 730, 16);
+bubble(210, 460, 26);
+bubble(249, 430, 27);
+bubble(238, 370, 35);
+bubble(49, 730, 38); 
+   };
+   </script>
+     <canvas id="myCan"></canvas>
+    </body>
+<style>
+body {
+   height:100vh; 
+   margin:0;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   background-color:indigo;
+}
+
+</style>
+</html>
